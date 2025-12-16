@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "img/anh6.jpg", "img/anh7.jpg", "img/anh8.jpg", "img/anh9.jpg", "img/anh10.jpg",
     "img/anh11.jpg", "img/anh12.jpg", "img/anh13.jpg", "img/anh14.jpg", "img/anh15.jpg",
     "img/anh16.jpg", "img/anh17.jpg", "img/anh18.jpg", "img/anh19.jpg", "img/anh20.jpg",
-    "img/anh21.jpg", "img/anh22.jpg", "img/anh23.jpg", "img/anh24.jpg", "img/anh25.jpg",
-    "img/anh26.jpg", "img/anh27.jpg", "img/anh28.jpg", "img/anh29.jpg", "img/anh30.jpg"
+    "img/anh21.JPG", "img/anh22.JPG", "img/anh23.JPG", "img/anh24.JPG", "img/anh25.JPG",
+    "img/anh26.JPG", "img/anh27.JPG", "img/anh28.JPG", "img/anh29.JPG", "img/anh30.JPG"
   ];
 
   const music = document.getElementById("music");
