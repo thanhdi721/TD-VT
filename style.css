@@ -1,0 +1,203 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fde7f0 0%, #f8c8dc 100%);
+    overflow-x: hidden;
+    color: #5c3e4a;
+}
+
+.love-counter-container {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px 50px;
+    border-radius: 25px;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(220, 150, 180, 0.37);
+    text-align: center;
+    z-index: 1;
+    max-width: 520px;
+    width: 90%;
+    transition: all 0.3s ease;
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+    color: #e75480;
+    margin-bottom: 20px;
+}
+
+.love-message {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 30px 0;
+    color: #7d5a6a;
+    font-style: italic;
+}
+
+.couple-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* CSS ĐÃ THÊM để sửa lỗi hiển thị tên */
+.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #e75480;
+    box-shadow: 0 0 20px rgba(231, 84, 128, 0.5);
+    transition: transform 0.4s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.08);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: #7d5a6a;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.heart {
+    font-size: 3.2em;
+    color: #e75480;
+    margin: 0 25px;
+    align-self: flex-start; /* Giúp trái tim căn thẳng hàng với avatar */
+    margin-top: 20px;     /* Đẩy trái tim xuống một chút cho cân đối */
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.day-counter {
+    margin: 20px 0;
+}
+
+.time-display {
+    display: flex;
+    justify-content: center;
+}
+
+.time-box {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.time-box span#love-days {
+    font-size: 5rem;
+    font-weight: 700;
+    background: -webkit-linear-gradient(45deg, #d9437a, #b82e66);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.time-box p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.7rem;
+    color: #b82e66;
+    margin: 5px 0 0;
+}
+
+.time-box span.time-small {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    color: #b82e66;
+    display: block;
+    margin-top: 5px;
+}
+
+.memories-link a {
+    display: inline-block;
+    padding: 14px 35px;
+    background: #e75480;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(231, 84, 128, 0.4);
+}
+
+.memories-link a:hover {
+    background-color: #c8416d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(231, 84, 128, 0.6);
+}
+
+/* --- Responsive cho điện thoại --- */
+@media (max-width: 600px) {
+    .love-counter-container {
+        padding: 30px 20px;
+        margin: 20px 0;
+    }
+    
+    .main-title {
+        font-size: 2em;
+    }
+
+    .avatar {
+        width: 85px;
+        height: 85px;
+    }
+    
+    .heart {
+        font-size: 2.8em;
+        margin: 0 15px;
+    }
+
+    .time-box span#love-days {
+        font-size: 4rem;
+    }
+
+    .time-box p {
+        font-size: 1.4rem;
+    }
+
+    .time-box span.time-small {
+        font-size: 1rem;
+    }
+
+    .name {
+        font-size: 1.1rem;
+    }
+
+    .love-message {
+        font-size: 1em;
+        margin: 25px 0;
+    }
+    
+    .memories-link a {
+        padding: 12px 30px;
+    }
+}
+
