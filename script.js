@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Tự động phát nhạc nền
+    const backgroundMusic = document.getElementById('background-music');
+    if (backgroundMusic) {
+        // Thử phát nhạc tự động
+        backgroundMusic.play().catch(error => {
+            // Nếu trình duyệt chặn autoplay, phát khi user tương tác lần đầu
+            const playMusic = () => {
+                backgroundMusic.play().catch(() => {});
+                document.removeEventListener('click', playMusic);
+                document.removeEventListener('touchstart', playMusic);
+            };
+            document.addEventListener('click', playMusic);
+            document.addEventListener('touchstart', playMusic);
+        });
+    }
+
     const startDate = '2025-10-11 00:00:00';
 
     function updateLoveTimer() {

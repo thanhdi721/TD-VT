@@ -16,6 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const albumBtn = document.getElementById("albumBtn");
   const typingDiv = document.getElementById("typing");
 
+  // Tự động phát nhạc nền
+  if (music) {
+    music.play().catch(error => {
+      // Nếu trình duyệt chặn autoplay, phát khi user tương tác lần đầu
+      const playMusic = () => {
+        music.play().catch(() => {});
+        document.removeEventListener('click', playMusic);
+        document.removeEventListener('touchstart', playMusic);
+      };
+      document.addEventListener('click', playMusic);
+      document.addEventListener('touchstart', playMusic);
+    });
+  }
+
   let idx = 0;
 
   function type() {
