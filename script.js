@@ -2,6 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tự động phát nhạc nền
     const backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic) {
+        // Khôi phục thời gian phát từ sessionStorage nếu có
+        const savedTime = sessionStorage.getItem('musicCurrentTime');
+        if (savedTime) {
+            backgroundMusic.currentTime = parseFloat(savedTime);
+        }
+
+        // Lưu thời gian phát mỗi giây
+        setInterval(() => {
+            if (!backgroundMusic.paused) {
+                sessionStorage.setItem('musicCurrentTime', backgroundMusic.currentTime.toString());
+            }
+        }, 1000);
+
+        // Lưu thời gian phát trước khi chuyển trang
+        window.addEventListener('beforeunload', () => {
+            sessionStorage.setItem('musicCurrentTime', backgroundMusic.currentTime.toString());
+        });
+
+        // Lưu thời gian khi click vào link chuyển trang
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', () => {
+                sessionStorage.setItem('musicCurrentTime', backgroundMusic.currentTime.toString());
+            });
+        });
+
         // Thử phát nhạc tự động
         backgroundMusic.play().catch(error => {
             // Nếu trình duyệt chặn autoplay, phát khi user tương tác lần đầu

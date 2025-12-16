@@ -18,6 +18,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tự động phát nhạc nền
   if (music) {
+    // Khôi phục thời gian phát từ sessionStorage nếu có
+    const savedTime = sessionStorage.getItem('musicCurrentTime');
+    if (savedTime) {
+      music.currentTime = parseFloat(savedTime);
+    }
+
+    // Lưu thời gian phát mỗi giây
+    setInterval(() => {
+      if (!music.paused) {
+        sessionStorage.setItem('musicCurrentTime', music.currentTime.toString());
+      }
+    }, 1000);
+
+    // Lưu thời gian phát trước khi chuyển trang
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem('musicCurrentTime', music.currentTime.toString());
+    });
+
+    // Lưu thời gian khi click vào link chuyển trang
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem('musicCurrentTime', music.currentTime.toString());
+      });
+    });
+
     music.play().catch(error => {
       // Nếu trình duyệt chặn autoplay, phát khi user tương tác lần đầu
       const playMusic = () => {
